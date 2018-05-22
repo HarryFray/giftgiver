@@ -7,27 +7,25 @@ describe('App', () => {
   // Gifts outer element... so all we can do is check to see if its there or not.
   const app = shallow(<App />);
 
+  // creates snapshot of app to compare new rendering to each time
+  // u in cl updates to new snapshot
   it('renders correctly', () => {
     expect(app).toMatchSnapshot();
   })
-
+  // get at app staet with .state()
   it('inits the `state` with an empty list of gifts', () => {
     expect(app.state().gifts).toEqual([])
   });
 
-  // it('inits the `state` with a non empty list of gifts', () => {
-  //   app.setState({ gifts: [{ id: 1 }, { id: 3 }, { id: 8 }] });
-
-  // })
-
   describe('when clicking the add gift button', () => {
 
     const id = 1;
-
+    // runs before each i nested with in the describe
     beforeEach(() => {
       app.find('.btn-add').simulate('click');
     });
-
+    // runs after each it within the describe prevening
+    // test polution
     afterEach(() => {
       app.setState({ gifts: [] })
     })
@@ -45,7 +43,7 @@ describe('App', () => {
     })
 
     describe('and the user want to remove the added gift', () => {
-
+      // .instance() gives access to functions declared within component
       beforeEach(() => {
         app.instance().removeGift(id);
       })
@@ -55,8 +53,11 @@ describe('App', () => {
       })
     })
   });
+
   describe('when calling remove gift button', () => {
     it(' returns correct max when older gifts have been removed', () => {
+      // setState({}) does what you think it does to the shallowly 
+      // rendered component
       app.setState({ gifts: [{ id: 1 }, { id: 3 }, { id: 8 }] });
       app.instance().addGift();
       expect(app.state().gifts).toEqual([{ id: 1 }, { id: 3 }, { id: 8 }, { id: 9 }])
