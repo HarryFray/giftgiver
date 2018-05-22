@@ -15,6 +15,11 @@ describe('App', () => {
     expect(app.state().gifts).toEqual([])
   });
 
+  // it('inits the `state` with a non empty list of gifts', () => {
+  //   app.setState({ gifts: [{ id: 1 }, { id: 3 }, { id: 8 }] });
+
+  // })
+
   describe('when clicking the add gift button', () => {
 
     const id = 1;
@@ -50,5 +55,19 @@ describe('App', () => {
       })
     })
   });
+  describe('when calling remove gift button', () => {
+    it(' returns correct max when older gifts have been removed', () => {
+      app.setState({ gifts: [{ id: 1 }, { id: 3 }, { id: 8 }] });
+      app.instance().addGift();
+      expect(app.state().gifts).toEqual([{ id: 1 }, { id: 3 }, { id: 8 }, { id: 9 }])
+    });
+
+    it(' returns correct max when imposible order occurs', () => {
+      app.setState({ gifts: [{ id: 100 }, { id: 3 }, { id: 8 }] });
+      app.instance().addGift();
+      expect(app.state().gifts).toEqual([{ id: 100 }, { id: 3 }, { id: 8 }, { id: 101 }])
+
+    })
+  })
 
 });

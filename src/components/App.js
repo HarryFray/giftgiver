@@ -14,20 +14,14 @@ class App extends Component {
     const { gifts } = this.state;
 
     const max = gifts.reduce((acc, cur) => {
-      if (cur.id < acc.id) {
-        return acc;
+      if (cur.id > acc.id) {
+        return cur;
       }
-      return cur;
+      return acc;
     }, { id: 0 })
 
     gifts.push({ id: max.id + 1 })
     this.setState({ gifts })
-  }
-
-  createList = () => {
-    return this.state.gifts.map(gift => {
-      return <li>{gift.id}</li>
-    })
   }
 
   removeGift = (id) => {
