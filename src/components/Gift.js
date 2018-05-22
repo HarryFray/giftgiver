@@ -18,19 +18,17 @@ class Gift extends Component {
 
   render(props) {
     return (
-      <div>
+      <div className='gift'>
         <Form>
           <FormGroup>
             <ControlLabel>Person</ControlLabel>
             <FormControl
               onChange={event => this.setState({ person: event.target.value })}
-              className='input-person'>
-            </FormControl>
+              className='input-person' />
             <ControlLabel>Gift</ControlLabel>
             <FormControl
               onChange={event => this.setState({ present: event.target.value })}
-              className='input-present'>
-            </FormControl>
+              className='input-present' />
           </FormGroup>
         </Form>
         <Button
