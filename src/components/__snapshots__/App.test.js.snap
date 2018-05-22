@@ -21,11 +21,11 @@ ShallowWrapper {
         <h2>
           Gift Giver
 </h2>,
-        <ul
+        <div
           className="gift-list"
 >
           
-</ul>,
+</div>,
         <Button
           active={false}
           block={false}
@@ -62,7 +62,7 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [],
-        "type": "ul",
+        "type": "div",
       },
       Object {
         "instance": null,
@@ -95,11 +95,11 @@ ShallowWrapper {
           <h2>
             Gift Giver
 </h2>,
-          <ul
+          <div
             className="gift-list"
 >
             
-</ul>,
+</div>,
           <Button
             active={false}
             block={false}
@@ -136,7 +136,7 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [],
-          "type": "ul",
+          "type": "div",
         },
         Object {
           "instance": null,
